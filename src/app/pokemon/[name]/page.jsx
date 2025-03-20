@@ -13,8 +13,6 @@ async function getPokemonDetails(name) {
 export default async function PokemonDetails({ params }) {
   const pokemon = await getPokemonDetails(params.name);
 
-
-
   if (!pokemon) {
     return <p className="text-red-500">Pokémon not found.</p>;
   }
@@ -27,8 +25,14 @@ export default async function PokemonDetails({ params }) {
         alt={pokemon.name}
         className="w-64 h-64"
       />
-      <p className="mt-4"><strong>Type:</strong> {pokemon.types.map((t) => t.type.name).join(", ")}</p>
-      <p><strong>Abilities:</strong> {pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
+      <p className="mt-4">
+        <strong>Type:</strong>{" "}
+        {pokemon.types.map((t) => t.type.name).join(", ")}
+      </p>
+      <p>
+        <strong>Abilities:</strong>{" "}
+        {pokemon.abilities.map((a) => a.ability.name).join(", ")}
+      </p>
       <h2 className="mt-4 text-xl font-semibold">Stats:</h2>
       <ul>
         {pokemon.stats.map((stat) => (

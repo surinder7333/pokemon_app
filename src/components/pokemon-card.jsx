@@ -89,14 +89,14 @@ export function PokemonCard({ pokemon }) {
       </Card>
 
       <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
-        <DialogContent className="sm:max-w-[425px] h-full bg-white overflow-auto">
+        <DialogContent className="sm:max-w-[425px] h-[700px] bg-white overflow-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
               <span className="capitalize">{pokemon.name}</span>
               {/* <span className="text-sm font-medium text-muted-foreground">{formattedId}</span> */}
             </DialogTitle>
             <DialogDescription>
-              <div className="relative h-48 w-full my-2">
+              <div className="relative h-32 w-full my-2">
                 <Image
                   src={imageUrl || "/placeholder.svg"}
                   alt={pokemon.name}

@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 
 const Progress = React.forwardRef(
   ({ className, value = 0, ...props }, ref) => {
+
+
     return (
       <ProgressPrimitive.Root
         ref={ref}
@@ -14,15 +16,14 @@ const Progress = React.forwardRef(
         {...props}
       >
         <ProgressPrimitive.Indicator
-          className="h-full bg-primary transition-all"
-          style={{ width: `${value}%` }} // Use `width` instead of `transform`
+          className="h-full bg-blue-500 transition-all"
+          style={{ width: `${value}%` }} 
         />
       </ProgressPrimitive.Root>
     );
   }
 );
 
-// Ensure the display name is correctly assigned
 Progress.displayName = "Progress";
 
 export { Progress };
