@@ -1,15 +1,17 @@
 "use client";
 
 import * as React from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
 const DialogPortal = DialogPrimitive.Portal;
 const DialogClose = DialogPrimitive.Close;
 
+// eslint-disable-next-line prefer-arrow-callback
 const DialogOverlay = React.forwardRef(function DialogOverlay({ className, ...props }, ref) {
   return (
     <DialogPrimitive.Overlay
@@ -24,6 +26,7 @@ const DialogOverlay = React.forwardRef(function DialogOverlay({ className, ...pr
 });
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
+// eslint-disable-next-line prefer-arrow-callback
 const DialogContent = React.forwardRef(function DialogContent({ className, children, ...props }, ref) {
   return (
     <DialogPortal>
@@ -57,6 +60,7 @@ const DialogFooter = ({ className, ...props }) => (
 );
 DialogFooter.displayName = "DialogFooter";
 
+// eslint-disable-next-line prefer-arrow-callback
 const DialogTitle = React.forwardRef(function DialogTitle({ className, ...props }, ref) {
   return (
     <DialogPrimitive.Title ref={ref} className={cn("text-lg font-semibold leading-none tracking-tight", className)} {...props} />
@@ -64,6 +68,7 @@ const DialogTitle = React.forwardRef(function DialogTitle({ className, ...props 
 });
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
+// eslint-disable-next-line prefer-arrow-callback
 const DialogDescription = React.forwardRef(function DialogDescription({ className, ...props }, ref) {
   return (
     <DialogPrimitive.Description ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />

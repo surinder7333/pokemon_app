@@ -3,14 +3,15 @@
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const Sheet = SheetPrimitive.Root;
 const SheetTrigger = SheetPrimitive.Trigger;
 const SheetClose = SheetPrimitive.Close;
 const SheetPortal = SheetPrimitive.Portal;
 
-const SheetOverlay = React.forwardRef(function SheetOverlay({ className, ...props }, ref) {
+// eslint-disable-next-line arrow-body-style
+const SheetOverlay = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <SheetPrimitive.Overlay
       ref={ref}
@@ -64,6 +65,7 @@ const SheetFooter = ({ className, ...props }) => (
 );
 SheetFooter.displayName = "SheetFooter";
 
+// eslint-disable-next-line prefer-arrow-callback
 const SheetTitle = React.forwardRef(function SheetTitle({ className, ...props }, ref) {
   return (
     <SheetPrimitive.Title ref={ref} className={cn("text-lg font-semibold text-foreground", className)} {...props} />

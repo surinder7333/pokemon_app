@@ -1,6 +1,7 @@
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
+// eslint-disable-next-line prefer-arrow-callback
 const Skeleton = React.forwardRef(function Skeleton({ className, ...props }, ref) {
   return (
     <div

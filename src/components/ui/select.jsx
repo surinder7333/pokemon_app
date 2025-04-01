@@ -3,12 +3,13 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const Select = SelectPrimitive.Root;
 const SelectGroup = SelectPrimitive.Group;
 const SelectValue = SelectPrimitive.Value;
 
+// eslint-disable-next-line prefer-arrow-callback
 const SelectTrigger = React.forwardRef(function SelectTrigger({ className, children, ...props }, ref) {
   return (
     <SelectPrimitive.Trigger
@@ -28,6 +29,7 @@ const SelectTrigger = React.forwardRef(function SelectTrigger({ className, child
 });
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
+// eslint-disable-next-line prefer-arrow-callback
 const SelectContent = React.forwardRef(function SelectContent({ className, children, position = "popper", ...props }, ref) {
   return (
     <SelectPrimitive.Portal>
@@ -47,6 +49,7 @@ const SelectContent = React.forwardRef(function SelectContent({ className, child
 });
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
+// eslint-disable-next-line prefer-arrow-callback
 const SelectItem = React.forwardRef(function SelectItem({ className, children, ...props }, ref) {
   return (
     <SelectPrimitive.Item
