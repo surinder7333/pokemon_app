@@ -1,13 +1,24 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Progress } from "@/components/ui/progress"
-import { Info } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "../components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "../components/ui/dialog";
+import { Progress } from "../components/ui/progress";
+import { Info } from "lucide-react";
 
 const typeColors = {
   normal: "bg-stone-400 hover:bg-stone-500",
@@ -28,13 +39,15 @@ const typeColors = {
   dark: "bg-stone-700 hover:bg-stone-800",
   steel: "bg-slate-400 hover:bg-slate-500",
   fairy: "bg-pink-300 hover:bg-pink-400",
-}
+};
 
 export function PokemonCard({ pokemon }) {
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false)
-  const imageUrl = pokemon.sprites.other?.["official-artwork"]?.front_default || pokemon.sprites.front_default
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const imageUrl =
+    pokemon.sprites.other?.["official-artwork"]?.front_default ||
+    pokemon.sprites.front_default;
 
-  const formattedId = `#${String(pokemon.id).padStart(3, "0")}`
+  const formattedId = `#${String(pokemon.id).padStart(3, "0")}`;
 
   return (
     <>
@@ -54,7 +67,9 @@ export function PokemonCard({ pokemon }) {
         <CardContent className="p-4">
           <div className="mb-2 flex items-center justify-between">
             <h2 className="text-xl font-bold capitalize">{pokemon.name}</h2>
-            <span className="text-sm font-medium text-muted-foreground">{formattedId}</span>
+            <span className="text-sm font-medium text-muted-foreground">
+              {formattedId}
+            </span>
           </div>
           <div className="mb-4 flex flex-wrap gap-2">
             {pokemon.types.map((type) => (
@@ -70,18 +85,26 @@ export function PokemonCard({ pokemon }) {
             <div className="flex items-center justify-between text-sm">
               <span>HP</span>
               <span className="font-medium">
-                {pokemon.stats.find((stat) => stat.stat.name === "hp")?.base_stat || 0}
+                {pokemon.stats.find((stat) => stat.stat.name === "hp")
+                  ?.base_stat || 0}
               </span>
             </div>
             <Progress
-              value={pokemon.stats.find((stat) => stat.stat.name === "hp")?.base_stat || 0}
+              value={
+                pokemon.stats.find((stat) => stat.stat.name === "hp")
+                  ?.base_stat || 0
+              }
               max={255}
               className="h-2"
             />
           </div>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <Button variant="outline" className="w-full" onClick={() => setIsDetailsOpen(true)}>
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => setIsDetailsOpen(true)}
+          >
             <Info className="mr-2 h-4 w-4" />
             View Details
           </Button>
@@ -122,15 +145,21 @@ export function PokemonCard({ pokemon }) {
           <div className="grid gap-4">
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-muted-foreground text-md font-bold">Height</p>
+                <p className="text-muted-foreground text-md font-bold">
+                  Height
+                </p>
                 <p className="font-medium">{pokemon.height / 10} m</p>
               </div>
               <div>
-                <p className="text-muted-foreground text-md font-bold">Weight</p>
+                <p className="text-muted-foreground text-md font-bold">
+                  Weight
+                </p>
                 <p className="font-medium">{pokemon.weight / 10} kg</p>
               </div>
               <div>
-                <p className="text-muted-foreground text-md font-bold">Base Experience</p>
+                <p className="text-muted-foreground text-md font-bold">
+                  Base Experience
+                </p>
                 <p className="font-medium">{pokemon.base_experience}</p>
               </div>
             </div>
@@ -140,7 +169,9 @@ export function PokemonCard({ pokemon }) {
               {pokemon.stats.map((stat) => (
                 <div key={stat.stat.name} className="space-y-1">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="capitalize text-md font-bold">{stat.stat.name.replace("-", " ")}</span>
+                    <span className="capitalize text-md font-bold">
+                      {stat.stat.name.replace("-", " ")}
+                    </span>
                     <span className="font-medium">{stat.base_stat}</span>
                   </div>
                   <Progress value={stat.base_stat} max={255} className="h-2" />
@@ -151,6 +182,5 @@ export function PokemonCard({ pokemon }) {
         </DialogContent>
       </Dialog>
     </>
-  )
+  );
 }
-

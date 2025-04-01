@@ -61,6 +61,7 @@ const CardDescription = React.forwardRef(function CardDescription(
 });
 CardDescription.displayName = "CardDescription";
 
+// eslint-disable-next-line prefer-arrow-callback
 const CardContent = React.forwardRef(function CardContent(
   { className, ...props },
   ref,

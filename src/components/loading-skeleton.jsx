@@ -1,10 +1,13 @@
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "../components/ui/skeleton";
 
 export function LoadingSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
       {Array.from({ length: 12 }).map((_, index) => (
-        <div key={index} className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden">
+        <div
+          key={index}
+          className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden"
+        >
           <div className="p-0">
             <Skeleton className="h-48 w-full" />
           </div>
@@ -31,6 +34,5 @@ export function LoadingSkeleton() {
         </div>
       ))}
     </div>
-  )
+  );
 }
-

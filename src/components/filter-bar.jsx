@@ -1,22 +1,43 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Search, SlidersHorizontal, X } from "lucide-react"
+import { useState } from "react";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../components/ui/sheet";
+import { Search, SlidersHorizontal, X } from "lucide-react";
 
-export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy, setSortBy, pokemonTypes }) {
-  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false)
+export function FilterBar({
+  search,
+  setSearch,
+  typeFilter,
+  setTypeFilter,
+  sortBy,
+  setSortBy,
+  pokemonTypes,
+}) {
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
   const clearFilters = () => {
-    setSearch("")
-    setTypeFilter("")
-    setSortBy("")
-  }
+    setSearch("");
+    setTypeFilter("");
+    setSortBy("");
+  };
 
-  const hasActiveFilters = search || typeFilter || sortBy
+  const hasActiveFilters = search || typeFilter || sortBy;
 
   return (
     <div className="space-y-4">
@@ -65,7 +86,9 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
               <SelectItem value="default">Default</SelectItem>
               <SelectItem value="name">Name (A-Z)</SelectItem>
               <SelectItem value="id">ID (Lowest)</SelectItem>
-              <SelectItem value="base_experience">Experience (Highest)</SelectItem>
+              <SelectItem value="base_experience">
+                Experience (Highest)
+              </SelectItem>
             </SelectContent>
           </Select>
 
@@ -82,13 +105,17 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
             <Button variant="outline" className="sm:hidden">
               <SlidersHorizontal className="h-4 w-4 mr-2" />
               Filters
-              {hasActiveFilters && <span className="ml-1 flex h-2 w-2 rounded-full bg-primary"></span>}
+              {hasActiveFilters && (
+                <span className="ml-1 flex h-2 w-2 rounded-full bg-primary"></span>
+              )}
             </Button>
           </SheetTrigger>
           <SheetContent side="bottom" className="h-[80vh] bg-white">
             <SheetHeader>
               <SheetTitle>Filters</SheetTitle>
-              <SheetDescription>Refine your Pokémon search results</SheetDescription>
+              <SheetDescription>
+                Refine your Pokémon search results
+              </SheetDescription>
             </SheetHeader>
             <div className="space-y-6 py-6 bg-white">
               <div className="space-y-2">
@@ -96,16 +123,20 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
                 <Select
                   value={typeFilter}
                   onValueChange={(value) => {
-                    setTypeFilter(value)
+                    setTypeFilter(value);
                   }}
                 >
                   <SelectTrigger className="!bg-white !z-10">
                     <SelectValue placeholder="All Types" />
-                  </SelectTrigger >
+                  </SelectTrigger>
                   <SelectContent className="bg-gray-100">
                     <SelectItem value="all">All Types</SelectItem>
                     {pokemonTypes.map((type) => (
-                      <SelectItem key={type} value={type} className="capitalize">
+                      <SelectItem
+                        key={type}
+                        value={type}
+                        className="capitalize"
+                      >
                         {type}
                       </SelectItem>
                     ))}
@@ -118,7 +149,7 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
                 <Select
                   value={sortBy}
                   onValueChange={(value) => {
-                    setSortBy(value)
+                    setSortBy(value);
                   }}
                 >
                   <SelectTrigger className="!bg-white">
@@ -128,7 +159,9 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
                     <SelectItem value="default">Default</SelectItem>
                     <SelectItem value="name">Name (A-Z)</SelectItem>
                     <SelectItem value="id">ID (Lowest)</SelectItem>
-                    <SelectItem value="base_experience">Experience (Highest)</SelectItem>
+                    <SelectItem value="base_experience">
+                      Experience (Highest)
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -137,7 +170,9 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
                 <Button variant="outline" onClick={clearFilters}>
                   Clear Filters
                 </Button>
-                <Button onClick={() => setIsMobileFiltersOpen(false)}>Apply Filters</Button>
+                <Button onClick={() => setIsMobileFiltersOpen(false)}>
+                  Apply Filters
+                </Button>
               </div>
             </div>
           </SheetContent>
@@ -150,7 +185,12 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
           {search && (
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold">
               Search: {search}
-              <Button variant="ghost" size="icon" className="ml-1 h-3.5 w-3.5" onClick={() => setSearch("")}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-1 h-3.5 w-3.5"
+                onClick={() => setSearch("")}
+              >
                 <X className="h-2 w-2" />
               </Button>
             </div>
@@ -158,15 +198,30 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
           {typeFilter && typeFilter !== "all" && (
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold capitalize">
               Type: {typeFilter}
-              <Button variant="ghost" size="icon" className="ml-1 h-3.5 w-3.5" onClick={() => setTypeFilter("")}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-1 h-3.5 w-3.5"
+                onClick={() => setTypeFilter("")}
+              >
                 <X className="h-2 w-2" />
               </Button>
             </div>
           )}
           {sortBy && sortBy !== "default" && (
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold">
-              Sort: {sortBy === "name" ? "Name (A-Z)" : sortBy === "id" ? "ID (Lowest)" : "Experience (Highest)"}
-              <Button variant="ghost" size="icon" className="ml-1 h-3.5 w-3.5" onClick={() => setSortBy("")}>
+              Sort:{" "}
+              {sortBy === "name"
+                ? "Name (A-Z)"
+                : sortBy === "id"
+                  ? "ID (Lowest)"
+                  : "Experience (Highest)"}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-1 h-3.5 w-3.5"
+                onClick={() => setSortBy("")}
+              >
                 <X className="h-2 w-2" />
               </Button>
             </div>
@@ -174,6 +229,5 @@ export function FilterBar({ search, setSearch, typeFilter, setTypeFilter, sortBy
         </div>
       )}
     </div>
-  )
+  );
 }
-

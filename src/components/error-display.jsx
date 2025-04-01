@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { AlertCircle } from "lucide-react"
-import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert"
-import { Button } from "@/components/ui/button"
+import { AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
+import { Button } from "../components/ui/button";
 
 export function ErrorDisplay({ message }) {
   return (
@@ -12,10 +12,13 @@ export function ErrorDisplay({ message }) {
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>{message}</AlertDescription>
       </Alert>
-      <Button variant="outline" className="mt-6" onClick={() => window.location.reload()}>
+      <Button
+        variant="outline"
+        className="mt-6"
+        onClick={() => window.location.reload()}
+      >
         Try Again
       </Button>
     </div>
-  )
+  );
 }
-

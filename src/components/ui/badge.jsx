@@ -19,6 +19,7 @@ const badgeVariants = cva(
   }
 );
 
+// eslint-disable-next-line prefer-arrow-callback
 const Badge = React.forwardRef(function Badge({ className, variant = "default", ...props }, ref) {
   return <div ref={ref} className={cn(badgeVariants({ variant }), className)} {...props} />;
 });

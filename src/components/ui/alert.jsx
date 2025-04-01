@@ -1,6 +1,7 @@
 import * as React from "react";
 import { AlertCircle } from "lucide-react";
 
+// eslint-disable-next-line prefer-arrow-callback
 const Alert = React.forwardRef(function Alert({ title, children, className, ...props }, ref) {
   return (
     <div

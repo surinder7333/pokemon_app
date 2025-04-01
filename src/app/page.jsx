@@ -1,14 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useDebounce } from "@/hooks/use-debounce"
-import { PokemonCard } from "@/components/pokemon-card"
-import { PokemonHeader } from "@/components/pokemon-header"
-import { FilterBar } from "@/components/filter-bar"
-import { LoadingSkeleton } from "@/components/loading-skeleton"
-import { EmptyState } from "@/components/empty-state"
-import { ErrorDisplay } from "@/components/error-display"
-import { Pagination } from "@/components/pagination"
+import { useDebounce } from "../hooks/use-debounce"
+import { PokemonCard } from "../components/pokemon-card"
+import { PokemonHeader } from "../components/pokemon-header"
+import { FilterBar } from "../components/filter-bar"
+import { LoadingSkeleton } from "../components/loading-skeleton"
+import { EmptyState } from "../components/empty-state"
+import { ErrorDisplay } from "../components/error-display"
+import { Pagination } from "../components/pagination"
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([])

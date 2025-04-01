@@ -39,6 +39,7 @@ const sheetVariants = (side) => {
   return `${baseStyles} ${sideStyles[side] || sideStyles.right}`;
 };
 
+// eslint-disable-next-line prefer-arrow-callback
 const SheetContent = React.forwardRef(function SheetContent({ side = "right", className, children, ...props }, ref) {
   return (
     <SheetPortal>
@@ -73,6 +74,7 @@ const SheetTitle = React.forwardRef(function SheetTitle({ className, ...props },
 });
 SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
+// eslint-disable-next-line prefer-arrow-callback
 const SheetDescription = React.forwardRef(function SheetDescription({ className, ...props }, ref) {
   return (
     <SheetPrimitive.Description ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
