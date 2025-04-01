@@ -29,17 +29,15 @@ Copy code
 npm run dev
 Then open http://localhost:3000 in your browser.
 
-4️⃣ Run Tests
-To ensure everything works correctly, run:
+
 
 sh
 Copy code
-npm test
 🛠️ Technologies Used
 Next.js – React framework for server-side rendering and static generation.
 Tailwind CSS – Styling.
 PokéAPI – Fetch Pokémon data.
-Jest and  react testing library for testing , MSW (Mock Service Worker) for testing API calls.
+
 💡 Approach
 Component-based architecture: The UI is broken down into reusable components.
 Server-side rendering (SSR) & Static Generation (SSG): Used Next.js API routes and useEffect hook for performance and fetching data with axios.
